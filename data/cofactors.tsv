@@ -1,0 +1,14 @@
+C00002	N1(C=NC2C(N)=NC=NC1=2)[C@H]1[C@H](O)[C@@H]([C@@H](COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O1)O	ATP;Adenosine 5'-triphosphate
+C00008	N1(C=NC2C(N)=NC=NC1=2)[C@H]1[C@H](O)[C@@H]([C@@H](COP(=O)(O)OP(=O)(O)O)O1)O	ADP;Adenosine 5'-diphosphate
+C00004	N1(C=NC2C(N)=NC=NC1=2)[C@H]1[C@H](O)[C@@H]([C@@H](COP(=O)(O)OP(=O)(O)OC[C@@H]2[C@@H](O)[C@H]([C@H](N3C=CCC(C(=O)N)=C3)O2)O)O1)O	NADH;DPNH;Reduced nicotinamide adenine dinucleotide
+C00003	[C@H]1(O)[C@H]([N+]2C=CC=C(C(=O)N)C=2)O[C@H](COP(O)(=O)OP(O)(=O)OC[C@H]2O[C@@H](N3C4=NC=NC(N)=C4N=C3)[C@H](O)[C@@H]2O)[C@H]1O	NAD+;NAD;Nicotinamide adenine dinucleotide;DPN;Diphosphopyridine nucleotide;Nadide;beta-NAD+
+C00006	[C@H]1(O[C@@H]([C@@H](O)[C@H]1OP(=O)(O)O)COP(=O)(O)OP(=O)(O)OC[C@@H]1[C@@H](O)[C@H]([C@H]([N+]2=CC=CC(C(=O)N)=C2)O1)O)N1C=NC2C(N)=NC=NC1=2	NADP+;NADP;Nicotinamide adenine dinucleotide phosphate;beta-Nicotinamide adenine dinucleotide phosphate;TPN;Triphosphopyridine nucleotide;beta-NADP+
+C00005	[C@H]1(O[C@@H]([C@@H](O)[C@H]1OP(=O)(O)O)COP(=O)(O)OP(=O)(O)OC[C@@H]1[C@@H](O)[C@H]([C@H](N2C=CCC(C(=O)N)=C2)O1)O)N1C=NC2C(N)=NC=NC1=2	NADPH;TPNH;Reduced nicotinamide adenine dinucleotide phosphate
+C00390	C1(OC)C(O)=C(C)C(C{-}/C=C(/C{+n}C/C=C(\C)/C)\C)=C(O)C=1OC	Ubiquinol;QH2;CoQH2
+C00399	C1(OC)C(=O)C(C)=C(C{-}/C=C(/C{+n}C/C=C(\C)/C)\C)C(=O)C=1OC	Ubiquinone;Coenzyme Q;CoQ;Q
+C00015	[C@@H]1([C@H](O)[C@@H]([C@@H](COP(=O)(O)OP(=O)(O)O)O1)O)N1C=CC(=O)NC1=O	UDP;Uridine 5'-diphosphate
+C00075	[C@@H]1([C@H](O)[C@@H]([C@@H](COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O1)O)N1C=CC(=O)NC1=O	UTP;Uridine 5'-triphosphate;Uridine triphosphate
+C00016	N1C(=O)C2=NC3=CC(C)=C(C)C=C3N(C[C@H](O)[C@H](O)[C@H](O)COP(O)(=O)OP(O)(=O)OC[C@H]3O[C@@H](N4C=NC5=C(N)N=CN=C54)[C@H](O)[C@@H]3O)C2=NC1=O	FAD;Flavin adenine dinucleotide
+C00035	N1(C=NC2C(=O)NC(N)=NC1=2)[C@H]1[C@H](O)[C@@H]([C@@H](COP(=O)(O)OP(=O)(O)O)O1)O	GDP;Guanosine 5'-diphosphate;Guanosine diphosphate
+C00044	N1(C=NC2C(=O)NC(N)=NC1=2)[C@H]1[C@H](O)[C@@H]([C@@H](COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O1)O	GTP;Guanosine 5'-triphosphate
+C01352	N1C(=O)C2NC3C=C(C)C(C)=CC=3N(C[C@H](O)[C@H](O)[C@H](O)COP(O)(=O)OP(O)(=O)OC[C@H]3O[C@@H](N4C=NC5=C(N)N=CN=C54)[C@H](O)[C@@H]3O)C=2NC1=O	FADH2
