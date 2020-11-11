@@ -1,7 +1,6 @@
 from typing import Dict, List, Set, Tuple
 
 from pandas import DataFrame
-from pydotplus.graphviz import graph_from_dot_file
 
 
 class DirectedHyperGraph:
@@ -41,6 +40,7 @@ def dot_reactions(df:DataFrame,
         dot_file:str='.reactions.dot',
         png_file:str=None
 ) -> None:
+    from pydotplus.graphviz import graph_from_dot_file
 
     dhg = DirectedHyperGraph(df, reac_col, reac_label_col, comp_col, comp_label_col, ispr_col)
     
