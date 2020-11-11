@@ -1,0 +1,21 @@
+db:
+ driver: postgresql+psycopg2
+ host: db-host
+ user: db-user
+ password: db-password
+ name:
+  EAWAG-BBD: eawagbbd
+  KEGG: keggdb
+envipath:
+ host: envipath.org
+ user: envipath-user
+ password: envipath-password
+ secure: True
+ verified: True
+datadir:
+ temp: ../data/tmp
+ stds: ../data/standardization
+ EAWAG-BBD: ../data/bbd
+ KEGG: ../data/kegg
+binaries: ../bin
+sources: ../src
