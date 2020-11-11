@@ -7,4 +7,3 @@ requests
 scipy
 sqlalchemy
 tqdm
-yaml
