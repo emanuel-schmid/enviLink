@@ -2,6 +2,8 @@ from pandas import DataFrame
 from numpy import NaN
 from scipy.cluster import hierarchy
 from scipy.spatial import distance
+from matplotlib import pyplot as plt
+from matplotlib import gridspec
 
 
 def eclevel(level, coln='ec', dismiss_undefined=True):
@@ -163,30 +165,56 @@ def make_comparable(hm1, hm2):
     return align(cl_hm1, cl_hm2)
 
 
-def overplot(ground, overlay, 
-             width=None, height=None, labelsize=None,
-             ground_cmap='autumn', overlay_cmap='Blues_r', alpha=1.0,
+def overplot(plt, ground, overlay, 
+             labelsize=None,
+             ground_cmap='autumn', overlay_cmap='Blues_r', alpha=0.5,
+             title='BT rule - EC number annotation',
+             ylabel='BT rules',
+             xlabel='EC numbers',
              dumpfile=None):
-    from matplotlib import pyplot as plt
-    if width or height:
-        # Set image size
-        fig = plt.gcf()
-        fig.set_size_inches(40,50)
-
-    # Plot heatmap
-    plt.clf()
-    plt.title('BT rule - EC number annotation')
-    plt.ylabel('BT rules')
-    plt.xlabel('EC numbers')
-    plt.yticks(range(ground.shape[0]),ground.index.values)
-    plt.xticks(range(ground.shape[1]),ground.columns.values, rotation=90)
-    if labelsize:
-        plt.tick_params(axis='both', which='major', labelsize=12)
-
+    plt.set_title(title)
+    plt.set_ylabel(ylabel)
+    plt.set_xlabel(xlabel)
+    plt.set_yticks(range(ground.shape[0]))
+    plt.set_yticklabels(labels=ground.index.values, size=labelsize)
+    plt.set_xticks(range(ground.shape[1]))
+    plt.set_xticklabels(ground.columns.values, rotation=90, size=labelsize)
+    
     im1 = plt.imshow(ground, cmap=ground_cmap)
     im2 = plt.imshow(overlay, cmap=overlay_cmap, alpha=alpha)
 
+
+def colorscheme(ax, ground, overlay, ground_label, overlay_label, ground_cmap='Reds', overlay_cmap='Greens', alpha=0.5):
+    maxx=int(ground.max().max())
+    maxy=int(overlay.max().max())
+    stepx = 5*(maxx//45+1)
+    stepy = 5*(maxy//45+1)
+    bsteps = [-maxy, 1] + list(range(stepy, maxy, stepy)) + [maxy]
+    ksteps = [0, 1] + list(range(stepx, maxx, stepx)) + [maxx]
+    kground = DataFrame(dict([
+        (0, -maxx) ]+[
+        (i, [i] * len(bsteps)) for i in ksteps[1:]
+    ]))
+    kground.index = [0] + bsteps[1:]
+    boverlay = DataFrame(dict([
+        (i, bsteps[:]) for i in ksteps
+    ]))
+    boverlay.index =  [0] + bsteps[1:]
+    overplot(ax, kground, boverlay, ground_cmap=ground_cmap, overlay_cmap=overlay_cmap, alpha=alpha,
+            title='Color Scheme', xlabel=ground_label, ylabel=overlay_label)
+
+
+def combined_histogram(ground, overlay, dumpfile=None,
+                       hist_h=40, hist_w=30, scheme_h=3, 
+                       ground_cmap='Reds', overlay_cmap='Greens', alpha=0.5):
+    fig = plt.figure(figsize=(hist_w, hist_h + scheme_h)) 
+    gs = gridspec.GridSpec(2, 1, height_ratios=[hist_h, scheme_h]) 
+
+    overplot(plt.subplot(gs[0]), ground, overlay,
+             ground_cmap=ground_cmap, overlay_cmap=overlay_cmap, alpha=alpha)
+    colorscheme(plt.subplot(gs[1]), ground, overlay,
+                ground_label='# KEGG evidence',
+                overlay_label='# EAWAG-BBD evidence',
+                ground_cmap=ground_cmap, overlay_cmap=overlay_cmap, alpha=alpha)
     if dumpfile:
         plt.savefig(dumpfile)
-
-
